@@ -6,9 +6,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.List;
+
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
@@ -34,6 +34,18 @@ public class LionTest {
         int expectedResult = 1;
         int actualResult = lion.getKittens();
         assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void shouldReturnLionsException() {
+        String sex = "Нечто";
+        boolean actualResult = false;
+        try {
+            new Lion(sex, feline);
+        } catch (Exception e) {
+            actualResult = true;
+        }
+        assertTrue(actualResult);
     }
 
 
